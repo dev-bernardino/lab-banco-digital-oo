@@ -1,4 +1,3 @@
-
 public abstract class Conta implements IConta {
 	
 	private static final int AGENCIA_PADRAO = 1;
@@ -22,6 +21,9 @@ public abstract class Conta implements IConta {
 
 	@Override
 	public void depositar(double valor) {
+		if(valor <= 0){
+			throw new IllegalArgumentException("Valor de depósito deve ser maior que zero.");
+		}
 		saldo += valor;
 	}
 
